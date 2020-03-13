@@ -15,5 +15,5 @@ app.get('/', (req, res) => {
 
 const httpServer = createServer(app)
 httpServer.listen(settings.PORT, () => {
-  console.log(`run server http://localhost:${settings.PORT}/grapql`)
+  console.log(`Server is listening at http://localhost:${settings.PORT}`)
 })
