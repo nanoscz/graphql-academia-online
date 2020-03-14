@@ -16,6 +16,13 @@ const query: IResolvers = {
     },
     getCourses(): any {
       return storage.courses
+    },
+    getCourse(__:void, { id }): any{
+      const course = storage.courses.filter(course =>  course.id === id)[0]
+      if(course === undefined) {
+        errorHandler(`Course with ID ${id} not found`)
+      }
+      return course
     }
   }
 }

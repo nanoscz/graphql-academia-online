@@ -5,6 +5,8 @@ type Query {
   getStudent(id: ID!): Student!
   """List Course"""
   getCourses: [Course]!
+   """get Course"""
+  getCourse(id: ID!): Course!
 }
 
 """Information Student"""
