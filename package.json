@@ -7,7 +7,16 @@
     "start": "node build/server.js",
     "build": "tsc -p . && ncp src/schema build/schema",
     "start:dev": "npm run build:dev",
-    "build:dev": "nodemon src/server.ts --exec ts-node src/server.ts -e ts,graphql,.env"
+    "build:dev": "nodemon src/server.ts --exec ts-node src/server.ts -e ts,graphql",
+    "tslint": "tslint --project tsconfig.json",
+    "prettier:base": "prettier --parser typescript --single-quote",
+    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:write"
+    }
   },
   "repository": {
     "type": "git",
@@ -46,7 +55,11 @@
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.1",
     "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
     "ts-node": "^8.6.2",
+    "tslint": "^6.1.0",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3"
   }
 }
