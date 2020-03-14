@@ -29,6 +29,7 @@ type Course {
   logo: String!
   path: String
   teacher: String
+  studens: [Student]!
   reviews: [Review!]!
 }
 
