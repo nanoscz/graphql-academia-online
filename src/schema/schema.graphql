@@ -1,6 +1,10 @@
 type Query {
   """List Students"""
   getStudents: [Student]!
+  """get Student"""
+  getStudent(id: ID!): Student!
+  """List Course"""
+  getCourses: [Course]!
 }
 
 """Information Student"""
@@ -25,6 +29,7 @@ type Course {
   teacher: String
   reviews: [Review!]!
 }
+
 """Information Review"""
 type Review {
   id: ID!
@@ -38,4 +43,5 @@ enum Level {
   EASy
   MEDIUM
   HARD
+  ALL
 }
