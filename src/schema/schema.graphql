@@ -9,6 +9,12 @@ type Query {
   getCourse(id: ID!): Course!
 }
 
+type Mutation {
+  addCourse(course: CourseInput!): Course!
+  editCourse(course: CourseInput!): Course!
+  deleteCourse(id: ID!): Course!
+}
+
 """Information Student"""
 type Student {
   id: ID!
@@ -47,4 +53,18 @@ enum Level {
   MEDIUM
   HARD
   ALL
+}
+
+"""Mutation CourseInput"""
+
+input CourseInput {
+  id: ID
+  title: String!
+  description: String!
+  class: Int!
+  time: Float!
+  level: Level=ALL
+  logo: String!
+  path: String!
+  teacher: String!
 }
