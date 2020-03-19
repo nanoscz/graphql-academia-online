@@ -1,7 +1,7 @@
-import courses from './courses.json';
-import students from './students.json';
+import coursesJson from './courses.json';
+import studentsJson from './students.json';
 
 export const storage = {
-  courses,
-  students
+  coursesJson,
+  studentsJson,
 };

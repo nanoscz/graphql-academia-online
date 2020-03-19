@@ -6,7 +6,7 @@ import mutation from './mutation';
 const resolversMap: IResolvers = {
   ...query,
   ...type,
-  ...mutation
+  ...mutation,
 };
 
 export default resolversMap;
