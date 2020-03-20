@@ -22,17 +22,17 @@ const mutation: IResolvers = {
       return newCourse;
     },
     editCourse(__:void, { course }): any {
-      const elementExits = lodash.findIndex(database.coursesJson, function(o) {
-        return o.id === course.id
-      })
-      if(elementExits === -1) {
+      const elementExits = lodash.findIndex(database.coursesJson, (o) => {
+        return o.id === course.id;
+      });
+      if (elementExits === -1) {
         error(`The course does not exist in the database`);
       }
       const reviews = database.coursesJson[elementExits].reviews;
       course.reviews = reviews;
       database.coursesJson[elementExits] = course;
-      return course
-    }
+      return course;
+    },
   },
 };
 
