@@ -33,6 +33,15 @@ const mutation: IResolvers = {
       database.coursesJson[elementExits] = course;
       return course;
     },
+    deleteCourse(__: void, { id }): any {
+      const deleteCourse = lodash.remove(database.coursesJson, (course) => {
+        return course.id === id;
+      });
+      if (deleteCourse[0] === undefined) {
+        error(`Course with id ${id} not found.`);
+      }
+      return deleteCourse[0];
+    },
   },
 };
 
